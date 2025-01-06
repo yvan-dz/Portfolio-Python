@@ -4,6 +4,8 @@ from flask_login import LoginManager, UserMixin, login_user, logout_user, login_
 import sqlite3
 import os
 from werkzeug.utils import secure_filename
+app = Flask(__name__, static_folder="static", template_folder="templates")
+
 
 app = Flask(__name__)
 
