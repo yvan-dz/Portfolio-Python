@@ -27,13 +27,10 @@
             </p>
 
             {% if current_user.is_authenticated %}
-            <div class="blog-controls">
-                <p><strong>Aufrufe:</strong> {{ blog['views'] }}</p>
-                <a href="/edit_blog/{{ blog['id'] }}" class="btn btn-secondary">Bearbeiten</a>
-                <form method="POST" action="/delete_blog/{{ blog['id'] }}" style="display:inline;">
-                    <button type="submit" class="btn btn-danger">Löschen</button>
-                </form>
-            </div>
+            <form method="GET" action="{{ url_for('delete_item', item_type='blog', item_id=blog['id']) }}" style="display:inline;">
+                <button type="submit" class="btn btn-danger">Löschen</button>
+            </form>
+            
             {% endif %}
         </div>
         {% endfor %}

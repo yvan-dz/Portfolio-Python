@@ -10,6 +10,7 @@ main {
     flex: 1;
     display: flex;
     flex-direction: column;
+   
 }
 
 footer {
@@ -18,7 +19,7 @@ footer {
     background: #f8f9fa;
     color: #555;
     border-top: 1px solid #ccc;
-    margin-top: 20px;
+    margin-top: 20%;
 }
 
 /* Delete Confirm-Seite */
@@ -171,6 +172,15 @@ footer {
 
 /* Für Geräte mit max. Breite von 480px (kleine Smartphones) */
 @media (max-width: 480px) {
+    footer {
+        text-align: center;
+        padding: 10px 20px;
+        background: #f8f9fa;
+        color: #555;
+        border-top: 1px solid #ccc;
+        margin-top: 100%;
+    }
+    
     .delete-confirm-page {
         max-width: 300px;
         padding: 15px;

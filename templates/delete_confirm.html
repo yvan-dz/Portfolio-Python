@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Projekt löschen{% endblock %}
+{% block title %}{{ item_type.capitalize() }} löschen{% endblock %}
 
 {% block styles %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/delete_confirm.css') }}">
@@ -9,14 +9,16 @@
 {% block content %}
 <div class="delete-confirm-page">
     <header class="delete-confirm-header">
-        <h1>Projekt löschen</h1>
-        <p>Bist du sicher, dass du dieses Projekt löschen möchtest? Diese Aktion kann nicht rückgängig gemacht werden.</p>
+        <h1>{{ item_type.capitalize() }} löschen</h1>
+        <p>Bist du sicher, dass du {{ item_type == 'project' and 'das Projekt' or 'den Blog' }} 
+           <strong>{{ item['name'] if item_type == 'project' else item['title'] }}</strong> löschen möchtest? 
+           Diese Aktion kann nicht rückgängig gemacht werden.</p>
     </header>
 
-    <form method="POST" class="delete-confirm-form">
+    <form action="{{ url_for('delete_item', item_type=item_type, item_id=item['id']) }}" method="POST" class="delete-confirm-form">
         <div class="form-actions">
             <button type="submit" class="btn btn-danger">Ja, löschen</button>
-            <a href="/projects" class="btn btn-secondary">Abbrechen</a>
+            <a href="{{ url_for(item_type + 's') }}" class="btn btn-secondary">Abbrechen</a>
         </div>
     </form>
 </div>

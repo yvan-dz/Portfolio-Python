@@ -1,13 +1,11 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, send_from_directory
+from flask import Flask, render_template, request, redirect, url_for, flash, send_from_directory, session
 from flask_mail import Mail, Message
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
-import sqlite3
-import os
 from werkzeug.utils import secure_filename
+from supabase import create_client, Client
+import os
+
 app = Flask(__name__, static_folder="static", template_folder="templates")
-
-
-app = Flask(__name__)
 
 # Geheimen Schlüssel für Flash-Messages und Sitzungen setzen
 app.secret_key = 'dein_geheimer_schlüssel'
@@ -21,17 +19,10 @@ app.config['MAIL_PASSWORD'] = 'dein_passwort'
 
 mail = Mail(app)
 
-# Ordner für Bild-Uploads konfigurieren
-app.config['UPLOAD_FOLDER'] = 'uploads'
-app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'gif'}
-
-def allowed_file(filename):
-    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
-
-# Route für den Zugriff auf hochgeladene Bilder
-@app.route('/uploads/<filename>')
-def uploaded_file(filename):
-    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+# Supabase konfigurieren
+supabase_url = "https://ubmvqnsxprdwtvaaqxjn.supabase.co"
+supabase_key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVibXZxbnN4cHJkd3R2YWFxeGpuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzYxODM1MDksImV4cCI6MjA1MTc1OTUwOX0.NQ-ctsr6drX0QNQW3hWLMjOPYPd4VmmQgLv6EP7z5e4"
+supabase: Client = create_client(supabase_url, supabase_key)
 
 # Flask-Login konfigurieren
 login_manager = LoginManager()
@@ -40,14 +31,12 @@ login_manager.login_view = "login"
 login_manager.login_message = "Bitte melde dich an, um diese Aktion auszuführen."
 login_manager.login_message_category = "warning"
 
-# Benutzerklasse und Benutzerliste
 class User(UserMixin):
     def __init__(self, id, username, password):
         self.id = id
         self.username = username
         self.password = password
 
-# Beispielbenutzer
 users = {
     "admin": User(id=1, username="admin", password="pass123")
 }
@@ -72,7 +61,6 @@ def login():
             flash("Ungültige Anmeldedaten.", "error")
     return render_template("login.html")
 
-# Logout-Route
 @app.route("/logout")
 @login_required
 def logout():
@@ -80,32 +68,22 @@ def logout():
     flash("Erfolgreich abgemeldet.", "success")
     return redirect(url_for("home"))
 
-# Startseite
 @app.route("/")
 def home():
     return render_template("index.html")
 
-# Über mich
 @app.route("/about")
 def about():
     return render_template("about.html")
 
-# Blog-Übersicht
+# Blogs anzeigen
 @app.route("/blogs")
 def blogs():
-    connection = sqlite3.connect("database.db")
-    cursor = connection.cursor()
-
-    cursor.execute("SELECT id, title, author, created_at, views FROM blogs")
-    blogs_list = [
-        {"id": row[0], "title": row[1], "author": row[2], "created_at": row[3], "views": row[4]}
-        for row in cursor.fetchall()
-    ]
-
-    connection.close()
+    response = supabase.table("blogs").select("*").execute()
+    blogs_list = response.data if response.data else []
     return render_template("blogs.html", blogs=blogs_list)
 
-# Blog erstellen
+# Blog hinzufügen
 @app.route("/add_blog", methods=["GET", "POST"])
 @login_required
 def add_blog():
@@ -114,15 +92,11 @@ def add_blog():
         content = request.form["content"]
         author = current_user.username
 
-        connection = sqlite3.connect("database.db")
-        cursor = connection.cursor()
-
-        cursor.execute("""
-            INSERT INTO blogs (title, content, author) VALUES (?, ?, ?)
-        """, (title, content, author))
-
-        connection.commit()
-        connection.close()
+        supabase.table("blogs").insert({
+            "title": title,
+            "content": content,
+            "author": author
+        }).execute()
 
         flash("Blog erfolgreich erstellt!", "success")
         return redirect(url_for("blogs"))
@@ -133,98 +107,129 @@ def add_blog():
 @app.route("/edit_blog/<int:blog_id>", methods=["GET", "POST"])
 @login_required
 def edit_blog(blog_id):
-    connection = sqlite3.connect("database.db")
-    cursor = connection.cursor()
-
     if request.method == "POST":
         title = request.form["title"]
         content = request.form["content"]
 
-        cursor.execute("""
-            UPDATE blogs SET title = ?, content = ? WHERE id = ?
-        """, (title, content, blog_id))
-
-        connection.commit()
-        connection.close()
+        supabase.table("blogs").update({
+            "title": title,
+            "content": content
+        }).eq("id", blog_id).execute()
 
         flash("Blog erfolgreich bearbeitet!", "success")
         return redirect(url_for("blogs"))
 
-    # Blog-Daten abrufen
-    cursor.execute("SELECT id, title, content FROM blogs WHERE id = ?", (blog_id,))
-    blog = cursor.fetchone()
-    connection.close()
-
-    if not blog:
-        flash("Blog nicht gefunden.", "error")
-        return redirect(url_for("blogs"))
-
-    blog_data = {
-        "id": blog[0],
-        "title": blog[1],
-        "content": blog[2]
-    }
-
-    return render_template("edit_blog.html", blog=blog_data)
+    response = supabase.table("blogs").select("*").eq("id", blog_id).single().execute()
+    blog = response.data if response.data else None
+    return render_template("edit_blog.html", blog=blog)
 
 # Blog löschen
 @app.route("/delete_blog/<int:blog_id>", methods=["POST"])
 @login_required
 def delete_blog(blog_id):
-    connection = sqlite3.connect("database.db")
-    cursor = connection.cursor()
-
-    cursor.execute("DELETE FROM blogs WHERE id = ?", (blog_id,))
-    connection.commit()
-    connection.close()
-
+    supabase.table("blogs").delete().eq("id", blog_id).execute()
     flash("Blog erfolgreich gelöscht!", "success")
     return redirect(url_for("blogs"))
 
-# Blog-Details anzeigen (inkl. Views erhöhen)
+# Blog Details
 @app.route("/blog/<int:blog_id>")
 def blog_detail(blog_id):
-    connection = sqlite3.connect("database.db")
-    cursor = connection.cursor()
-
-    cursor.execute("SELECT * FROM blogs WHERE id = ?", (blog_id,))
-    blog = cursor.fetchone()
-
-    if not blog:
-        flash("Blog nicht gefunden.", "error")
-        return redirect(url_for("blogs"))
-
-    cursor.execute("UPDATE blogs SET views = views + 1 WHERE id = ?", (blog_id,))
-    connection.commit()
-    connection.close()
-
-    blog_data = {
-        "id": blog[0],
-        "title": blog[1],
-        "content": blog[2],
-        "author": blog[3],
-        "created_at": blog[4],
-        "views": blog[5] + 1
-    }
-
-    return render_template("blog_detail.html", blog=blog_data)
+    response = supabase.table("blogs").select("*").eq("id", blog_id).single().execute()
+    blog = response.data if response.data else None
+    return render_template("blog_detail.html", blog=blog)
 
 # Projekte anzeigen
 @app.route("/projects")
 def projects():
-    connection = sqlite3.connect("database.db")
-    cursor = connection.cursor()
-
-    cursor.execute("SELECT id, name, description, image FROM projects")
-    project_list = [
-        {"id": row[0], "name": row[1], "description": row[2], "image": row[3]}
-        for row in cursor.fetchall()
-    ]
-
-    connection.close()
+    response = supabase.table("projects").select("*").execute()
+    project_list = response.data if response.data else []
     return render_template("projects.html", projects=project_list)
 
-# Kontaktformular
+# Projekt hinzufügen
+@app.route("/add_project", methods=["GET", "POST"])
+@login_required
+def add_project():
+    if request.method == "POST":
+        name = request.form["name"]
+        description = request.form["description"]
+        image = request.form["image_url"]
+
+        supabase.table("projects").insert({
+            "name": name,
+            "description": description,
+            "image": image
+        }).execute()
+
+        flash("Projekt erfolgreich hinzugefügt!", "success")
+        return redirect(url_for("projects"))
+
+    return render_template("add_project.html")
+
+# Projekt bearbeiten
+@app.route("/edit_project/<int:project_id>", methods=["GET", "POST"])
+@login_required
+def edit_project(project_id):
+    if request.method == "POST":
+        name = request.form["name"]
+        description = request.form["description"]
+        image = request.form["image_url"]
+
+        supabase.table("projects").update({
+            "name": name,
+            "description": description,
+            "image": image
+        }).eq("id", project_id).execute()
+
+        flash("Projekt erfolgreich bearbeitet!", "success")
+        return redirect(url_for("projects"))
+
+    response = supabase.table("projects").select("*").eq("id", project_id).single().execute()
+    project = response.data if response.data else None
+    return render_template("edit_project.html", project=project)
+
+# Projekt löschen
+@app.route("/delete_project/<int:project_id>", methods=["POST"])
+@login_required
+def delete_project(project_id):
+    # Versuch, das Projekt zu löschen
+    response = supabase.table("projects").delete().eq("id", project_id).execute()
+
+    if response.data:
+        flash("Projekt erfolgreich gelöscht!", "success")
+    else:
+        flash("Fehler beim Löschen des Projekts. Bitte überprüfe die Logs.", "error")
+
+    return redirect(url_for("projects"))
+
+#dete confirm Seite
+@app.route("/delete_confirm/<string:item_type>/<int:item_id>", methods=["GET"])
+@login_required
+def delete_confirm(item_type, item_id):
+    # Abrufen der Eintragsdaten aus Supabase
+    if item_type == "project":
+        table_name = "projects"
+    elif item_type == "blog":
+        table_name = "blogs"
+    else:
+        flash("Ungültiger Eintragstyp.", "error")
+        return redirect(url_for("home"))
+
+    response = supabase.table(table_name).select("*").eq("id", item_id).single().execute()
+    item = response.data if response.data else None
+
+    if not item:
+        flash(f"{item_type.capitalize()} nicht gefunden.", "error")
+        return redirect(url_for(item_type + "s"))
+
+    return render_template("delete_confirm.html", item=item, item_type=item_type)
+
+# Projekt Details
+@app.route("/project/<int:project_id>")
+def project_detail(project_id):
+    response = supabase.table("projects").select("*").eq("id", project_id).single().execute()
+    project = response.data if response.data else None
+    return render_template("project_detail.html", project=project)
+
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
     if request.method == "POST":
@@ -244,121 +249,52 @@ def contact():
         return redirect(url_for("contact"))
     return render_template("contact.html")
 
-# Neues Projekt hinzufügen
-@app.route("/add_project", methods=["GET", "POST"])
+@app.route("/delete_item/<string:item_type>/<int:item_id>", methods=["GET", "POST"])
 @login_required
-def add_project():
-    if request.method == "POST":
-        name = request.form["name"]
-        description = request.form["description"]
-        image_url = request.form["image_url"]
+def delete_item(item_type, item_id):
+    if request.method == "GET":
+        # Zeige die Bestätigungsseite an
+        if item_type == "project":
+            table_name = "projects"
+        elif item_type == "blog":
+            table_name = "blogs"
+        else:
+            flash("Ungültiger Eintragstyp.", "error")
+            return redirect(url_for("home"))
 
-        # Bild-Upload verarbeiten, falls vorhanden
-        image_path = None
-        if "image_file" in request.files:
-            file = request.files["image_file"]
-            if file and allowed_file(file.filename):
-                filename = secure_filename(file.filename)
-                image_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-                file.save(image_path)
+        # Abrufen des Eintrags aus Supabase
+        response = supabase.table(table_name).select("*").eq("id", item_id).single().execute()
+        item = response.data if response.data else None
 
-        # Bevorzuge hochgeladenes Bild, falls vorhanden
-        image = image_path if image_path else image_url
+        if not item:
+            flash(f"{item_type.capitalize()} nicht gefunden.", "error")
+            return redirect(url_for(item_type + "s"))
 
-        # Projekt in die Datenbank einfügen
-        connection = sqlite3.connect("database.db")
-        cursor = connection.cursor()
-        cursor.execute("""
-            INSERT INTO projects (name, description, image) VALUES (?, ?, ?)
-        """, (name, description, image))
-        connection.commit()
-        connection.close()
+        return render_template("delete_confirm.html", item=item, item_type=item_type)
 
-        flash("Projekt erfolgreich hinzugefügt!", "success")
-        return redirect(url_for("projects"))
-    return render_template("add_project.html")
+    elif request.method == "POST":
+        # Führe die Löschung aus
+        if item_type == "project":
+            table_name = "projects"
+            redirect_url = "projects"
+        elif item_type == "blog":
+            table_name = "blogs"
+            redirect_url = "blogs"
+        else:
+            flash("Ungültiger Eintragstyp.", "error")
+            return redirect(url_for("home"))
 
-# Projekt bearbeiten
-@app.route("/edit_project/<int:project_id>", methods=["GET", "POST"])
-@login_required
-def edit_project(project_id):
-    connection = sqlite3.connect("database.db")
-    cursor = connection.cursor()
+        # Versuch, den Eintrag zu löschen
+        response = supabase.table(table_name).delete().eq("id", item_id).execute()
 
-    if request.method == "POST":
-        name = request.form["name"]
-        description = request.form["description"]
-        image_url = request.form["image_url"]
+        if response.data:
+            flash(f"{item_type.capitalize()} erfolgreich gelöscht!", "success")
+        else:
+            flash(f"Fehler beim Löschen des {item_type}. Bitte überprüfe die Logs.", "error")
 
-        # Bild-Upload verarbeiten, falls vorhanden
-        image_path = None
-        if "image_file" in request.files:
-            file = request.files["image_file"]
-            if file and allowed_file(file.filename):
-                filename = secure_filename(file.filename)
-                image_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-                file.save(image_path)
+        return redirect(url_for(redirect_url))
 
-        # Bevorzuge hochgeladenes Bild, falls vorhanden
-        image = image_path if image_path else image_url
 
-        cursor.execute("""
-            UPDATE projects SET name = ?, description = ?, image = ? WHERE id = ?
-        """, (name, description, image, project_id))
-
-        connection.commit()
-        connection.close()
-
-        flash("Projekt erfolgreich bearbeitet!", "success")
-        return redirect(url_for("projects"))
-
-    cursor.execute("SELECT * FROM projects WHERE id = ?", (project_id,))
-    project = cursor.fetchone()
-
-    connection.close()
-    return render_template("edit_project.html", project=project)
-
-# Projekt löschen
-@app.route("/delete_project/<int:project_id>", methods=["GET", "POST"])
-@login_required
-def delete_project(project_id):
-    if request.method == "POST":
-        connection = sqlite3.connect("database.db")
-        cursor = connection.cursor()
-
-        cursor.execute("DELETE FROM projects WHERE id = ?", (project_id,))
-        connection.commit()
-        connection.close()
-
-        flash("Projekt erfolgreich gelöscht!", "success")
-        return redirect(url_for("projects"))
-
-    flash("Möchtest du dieses Projekt wirklich löschen? Bestätige unten.", "warning")
-    return render_template("delete_confirm.html", project_id=project_id)
-
-@app.route("/project/<int:project_id>")
-def project_detail(project_id):
-    connection = sqlite3.connect("database.db")
-    cursor = connection.cursor()
-
-    # Hole die Projektdaten aus der Datenbank
-    cursor.execute("SELECT id, name, description, image FROM projects WHERE id = ?", (project_id,))
-    project = cursor.fetchone()
-
-    # Falls kein Projekt gefunden wurde, leite zur Projekte-Seite weiter
-    if not project:
-        flash("Projekt nicht gefunden.", "error")
-        return redirect(url_for("projects"))
-
-    project_data = {
-        "id": project[0],
-        "name": project[1],
-        "description": project[2],
-        "image": project[3]
-    }
-
-    connection.close()
-    return render_template("project_detail.html", project=project_data)
 
 if __name__ == "__main__":
     app.run(debug=True)
