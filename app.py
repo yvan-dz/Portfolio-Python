@@ -4,8 +4,7 @@ from flask_login import LoginManager, UserMixin, login_user, logout_user, login_
 from werkzeug.utils import secure_filename
 from supabase import create_client, Client
 import os
-from config import SUPABASE_URL, SUPABASE_KEY
-from supabase import create_client, Client
+
 app = Flask(__name__, static_folder="static", template_folder="templates")
 
 # Geheimen Schlüssel für Flash-Messages und Sitzungen setzen
@@ -21,7 +20,8 @@ app.config['MAIL_PASSWORD'] = 'dein_passwort'
 mail = Mail(app)
 
 # Supabase konfigurieren
-
+supabase_url = "https://ubmvqnsxprdwtvaaqxjn.supabase.co"
+supabase_key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVibXZxbnN4cHJkd3R2YWFxeGpuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzYxODM1MDksImV4cCI6MjA1MTc1OTUwOX0.NQ-ctsr6drX0QNQW3hWLMjOPYPd4VmmQgLv6EP7z5e4"
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 # Flask-Login konfigurieren
