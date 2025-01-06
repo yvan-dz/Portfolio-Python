@@ -115,3 +115,108 @@ footer {
         width: 100%;
     }
 }
+/* Erweiterte Media Queries */
+
+/* Für Geräte mit max. Breite von 1024px (Tablets und kleinere Laptops) */
+@media (max-width: 1024px) {
+    .delete-confirm-page {
+        max-width: 500px;
+        padding: 25px 15px;
+    }
+
+    .delete-confirm-header h1 {
+        font-size: 1.9rem;
+    }
+
+    .delete-confirm-header p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .btn-danger,
+    .btn-secondary {
+        font-size: 0.95rem;
+        padding: 10px 20px;
+    }
+}
+
+/* Für Geräte mit max. Breite von 768px (kleine Tablets und große Smartphones) */
+@media (max-width: 768px) {
+    .delete-confirm-page {
+        max-width: 400px;
+        padding: 20px;
+    }
+
+    .delete-confirm-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .delete-confirm-header p {
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn-danger,
+    .btn-secondary {
+        width: 100%;
+        padding: 10px 18px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Für Geräte mit max. Breite von 480px (kleine Smartphones) */
+@media (max-width: 480px) {
+    .delete-confirm-page {
+        max-width: 300px;
+        padding: 15px;
+    }
+
+    .delete-confirm-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .delete-confirm-header p {
+        font-size: 0.85rem;
+    }
+
+    .btn-danger,
+    .btn-secondary {
+        padding: 8px 15px;
+        font-size: 0.85rem;
+    }
+
+    .form-actions {
+        gap: 10px;
+    }
+}
+
+/* Für Geräte mit max. Breite von 320px (sehr kleine Smartphones) */
+@media (max-width: 320px) {
+    .delete-confirm-page {
+        max-width: 260px;
+        padding: 10px;
+    }
+
+    .delete-confirm-header h1 {
+        font-size: 1.4rem;
+    }
+
+    .delete-confirm-header p {
+        font-size: 0.8rem;
+    }
+
+    .btn-danger,
+    .btn-secondary {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    .form-actions {
+        gap: 8px;
+    }
+}

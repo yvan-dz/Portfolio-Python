@@ -126,3 +126,95 @@
         font-size: 1rem;
     }
 }
+/* Erweiterte Media Queries */
+
+/* Für Geräte mit max. Breite von 1024px (Tablets und kleinere Laptops) */
+@media (max-width: 1024px) {
+    .project-detail-page {
+        padding: 30px 15px;
+        margin: 20px auto;
+    }
+
+    .project-header h1 {
+        font-size: 2.2rem;
+    }
+
+    .project-description {
+        font-size: 1.1rem;
+    }
+
+    .project-image img {
+        max-width: 400px;
+    }
+}
+
+/* Für Geräte mit max. Breite von 768px (kleine Tablets und große Smartphones) */
+@media (max-width: 768px) {
+    .project-detail {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .project-header h1 {
+        font-size: 2rem;
+    }
+
+    .project-image img {
+        max-width: 100%;
+    }
+
+    .project-description {
+        font-size: 1rem;
+    }
+
+    .project-footer .btn {
+        padding: 8px 18px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Für Geräte mit max. Breite von 480px (kleine Smartphones) */
+@media (max-width: 480px) {
+    .project-detail-page {
+        padding: 20px;
+    }
+
+    .project-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .project-header h1::after {
+        width: 60px;
+    }
+
+    .project-description {
+        font-size: 0.95rem;
+        max-width: 90%;
+    }
+
+    .project-footer .btn {
+        width: 100%;
+        font-size: 0.85rem;
+    }
+}
+
+/* Für Geräte mit max. Breite von 320px (sehr kleine Smartphones) */
+@media (max-width: 320px) {
+    .project-detail-page {
+        padding: 15px;
+    }
+
+    .project-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .project-description {
+        font-size: 0.9rem;
+        max-width: 100%;
+    }
+
+    .project-footer .btn {
+        padding: 6px 15px;
+        font-size: 0.8rem;
+    }
+}

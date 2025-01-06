@@ -510,3 +510,178 @@
     box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.5);
 }
 
+/* Media Queries */
+
+/* Für Geräte mit max. Breite von 1024px (Tablets und kleinere Laptops) */
+@media (max-width: 1024px) {
+    .projects-page {
+        padding: 40px 20px;
+    }
+
+    .projects-header h1 {
+        font-size: 2.8rem;
+    }
+
+    .projects-header p {
+        font-size: 1.1rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .methodology, .tools, .recognition, .future-projects {
+        padding: 30px 15px;
+    }
+
+    .methodology h2, .tools h2, .recognition h2, .future-projects h2 {
+        font-size: 2rem;
+    }
+
+    .methodology p, .tools p, .recognition p, .future-projects p {
+        font-size: 1.1rem;
+    }
+}
+
+/* Für Geräte mit max. Breite von 768px (kleine Tablets und große Smartphones) */
+@media (max-width: 768px) {
+    .projects-header h1 {
+        font-size: 2.4rem;
+    }
+
+    .projects-header p {
+        font-size: 1rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .project-card {
+        padding: 15px;
+    }
+
+    .project-card h2 {
+        font-size: 1.3rem;
+    }
+
+    .project-card p {
+        font-size: 0.95rem;
+    }
+
+    .methodology, .tools, .recognition, .future-projects {
+        padding: 20px 10px;
+    }
+
+    .methodology h2, .tools h2, .recognition h2, .future-projects h2 {
+        font-size: 1.8rem;
+    }
+
+    .methodology p, .tools p, .recognition p, .future-projects p {
+        font-size: 1rem;
+    }
+
+    .methodology-list li, .recognition-list li, .future-projects-list li {
+        font-size: 0.95rem;
+    }
+
+    .methodology-list li::before, .recognition-list li::before, .future-projects-list li::before {
+        font-size: 1.2rem;
+    }
+}
+
+/* Für Geräte mit max. Breite von 480px (kleine Smartphones) */
+@media (max-width: 480px) {
+    .projects-header h1 {
+        font-size: 2rem;
+    }
+
+    .projects-header p {
+        font-size: 0.9rem;
+    }
+
+    .projects-page {
+        padding: 20px 10px;
+    }
+
+    .project-card {
+        padding: 10px;
+    }
+
+    .project-card h2 {
+        font-size: 1.2rem;
+    }
+
+    .project-card p {
+        font-size: 0.85rem;
+    }
+
+    .methodology, .tools, .recognition, .future-projects {
+        padding: 15px 5px;
+    }
+
+    .methodology h2, .tools h2, .recognition h2, .future-projects h2 {
+        font-size: 1.6rem;
+    }
+
+    .methodology p, .tools p, .recognition p, .future-projects p {
+        font-size: 0.9rem;
+    }
+
+    .methodology-list li, .recognition-list li, .future-projects-list li {
+        font-size: 0.85rem;
+    }
+
+    .methodology-list li::before, .recognition-list li::before, .future-projects-list li::before {
+        font-size: 1rem;
+    }
+}
+
+/* Für Geräte mit max. Breite von 320px (sehr kleine Smartphones) */
+@media (max-width: 320px) {
+    .projects-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .projects-header p {
+        font-size: 0.8rem;
+    }
+
+    .projects-page {
+        padding: 15px 5px;
+    }
+
+    .project-card {
+        padding: 8px;
+    }
+
+    .project-card h2 {
+        font-size: 1rem;
+    }
+
+    .project-card p {
+        font-size: 0.75rem;
+    }
+
+    .methodology, .tools, .recognition, .future-projects {
+        padding: 10px 5px;
+    }
+
+    .methodology h2, .tools h2, .recognition h2, .future-projects h2 {
+        font-size: 1.4rem;
+    }
+
+    .methodology p, .tools p, .recognition p, .future-projects p {
+        font-size: 0.8rem;
+    }
+
+    .methodology-list li, .recognition-list li, .future-projects-list li {
+        font-size: 0.75rem;
+    }
+
+    .methodology-list li::before, .recognition-list li::before, .future-projects-list li::before {
+        font-size: 0.9rem;
+    }
+}

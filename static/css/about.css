@@ -451,3 +451,202 @@
     color: #555;
     line-height: 1.6;
 }
+/* Responsives Design */
+
+/* Geräte mit max. Breite von 768px (Tablets und kleinere) */
+@media (max-width: 768px) {
+    .about-page {
+        padding: 30px;
+        margin: 20px;
+    }
+
+    .about-header {
+        padding: 40px 20px;
+        margin-bottom: 40px;
+    }
+
+    .about-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .about-header p {
+        font-size: 1.1rem;
+    }
+
+    .about-section {
+        padding: 20px;
+        margin-bottom: 40px;
+    }
+
+    .about-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .about-section p {
+        font-size: 1rem;
+    }
+
+    .about-list li {
+        font-size: 0.95rem;
+        padding-left: 30px;
+    }
+
+    .education .timeline-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .education .timeline-item .timeline-icon {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .personal-story .story-container {
+        flex-direction: column;
+    }
+
+    .personal-story .story-image img {
+        max-width: 100%;
+    }
+}
+
+/* Geräte mit max. Breite von 480px (kleine Smartphones) */
+@media (max-width: 480px) {
+    .about-page {
+        padding: 20px;
+        margin: 15px;
+    }
+
+    .about-header {
+        padding: 30px 15px;
+        margin-bottom: 30px;
+    }
+
+    .about-header h1 {
+        font-size: 2rem;
+    }
+
+    .about-header p {
+        font-size: 1rem;
+    }
+
+    .about-section {
+        padding: 15px;
+    }
+
+    .about-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .about-section p {
+        font-size: 0.9rem;
+    }
+
+    .about-list li {
+        font-size: 0.85rem;
+        padding-left: 20px;
+    }
+
+    .education .timeline-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .education .timeline-item .timeline-content h3 {
+        font-size: 1.2rem;
+    }
+
+    .personal-story .story-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .career-highlights .career-container,
+    .hobbies .hobbies-container,
+    .fun-facts .facts-container,
+    .future-goals .goals-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .career-highlights .career-card h3,
+    .hobbies .hobby-card h3,
+    .fun-facts .fact-card h3,
+    .future-goals .goal-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .career-highlights .career-card p,
+    .hobbies .hobby-card p,
+    .fun-facts .fact-card p,
+    .future-goals .goal-card p {
+        font-size: 0.85rem;
+    }
+
+    .personal-story .story-image img {
+        width: 100%;
+    }
+}
+
+/* Geräte mit max. Breite von 320px (sehr kleine Smartphones) */
+@media (max-width: 320px) {
+    .about-header {
+        padding: 20px 10px;
+        margin-bottom: 20px;
+    }
+
+    .about-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .about-header p {
+        font-size: 0.85rem;
+    }
+
+    .about-section {
+        padding: 10px;
+    }
+
+    .about-section h2 {
+        font-size: 1.3rem;
+    }
+
+    .about-section p {
+        font-size: 0.8rem;
+    }
+
+    .about-list li {
+        font-size: 0.75rem;
+        padding-left: 15px;
+    }
+
+    .personal-story .story-container {
+        gap: 10px;
+    }
+
+    .career-highlights .career-container,
+    .hobbies .hobbies-container,
+    .fun-facts .facts-container,
+    .future-goals .goals-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .career-highlights .career-card h3,
+    .hobbies .hobby-card h3,
+    .fun-facts .fact-card h3,
+    .future-goals .goal-card h3 {
+        font-size: 1rem;
+    }
+
+    .career-highlights .career-card p,
+    .hobbies .hobby-card p,
+    .fun-facts .fact-card p,
+    .future-goals .goal-card p {
+        font-size: 0.75rem;
+    }
+
+    .personal-story .story-image img {
+        width: 100%;
+    }
+}

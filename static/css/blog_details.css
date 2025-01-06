@@ -104,3 +104,124 @@ footer {
     background: #eaeaea;
     transform: scale(1.03);
 }
+/* Media Queries */
+
+/* Für Geräte mit max. Breite von 1024px (Tablets und kleinere Laptops) */
+@media (max-width: 1024px) {
+    .blog-details-page {
+        padding: 25px 15px;
+        margin: 30px auto;
+    }
+
+    .blog-details-header h1 {
+        font-size: 2.2rem;
+    }
+
+    .blog-details-header .meta {
+        font-size: 0.95rem;
+    }
+
+    .blog-content {
+        font-size: 1rem;
+        padding: 15px;
+    }
+
+    .blog-actions .btn {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Für Geräte mit max. Breite von 768px (kleine Tablets und große Smartphones) */
+@media (max-width: 768px) {
+    .blog-details-page {
+        padding: 20px 10px;
+    }
+
+    .blog-details-header h1 {
+        font-size: 2rem;
+    }
+
+    .blog-details-header .meta {
+        font-size: 0.9rem;
+    }
+
+    .blog-content {
+        font-size: 0.95rem;
+        padding: 10px;
+    }
+
+    .blog-actions .btn {
+        padding: 8px 18px;
+        font-size: 0.9rem;
+    }
+
+    .blog-actions .btn-secondary {
+        padding: 8px 18px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Für Geräte mit max. Breite von 480px (kleine Smartphones) */
+@media (max-width: 480px) {
+    .blog-details-page {
+        padding: 15px 5px;
+    }
+
+    .blog-details-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .blog-details-header .meta {
+        font-size: 0.85rem;
+    }
+
+    .blog-content {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .blog-actions .btn {
+        padding: 7px 15px;
+        font-size: 0.85rem;
+        width: 100%; /* Buttons über die gesamte Breite */
+    }
+
+    .blog-actions .btn-secondary {
+        padding: 7px 15px;
+        font-size: 0.85rem;
+        width: 100%; /* Buttons über die gesamte Breite */
+    }
+}
+
+/* Für Geräte mit max. Breite von 320px (sehr kleine Smartphones) */
+@media (max-width: 320px) {
+    .blog-details-page {
+        padding: 10px 5px;
+    }
+
+    .blog-details-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .blog-details-header .meta {
+        font-size: 0.8rem;
+    }
+
+    .blog-content {
+        font-size: 0.85rem;
+        padding: 5px;
+    }
+
+    .blog-actions .btn {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+        width: 100%; /* Buttons über die gesamte Breite */
+    }
+
+    .blog-actions .btn-secondary {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+        width: 100%; /* Buttons über die gesamte Breite */
+    }
+}

@@ -140,3 +140,128 @@
         width: 100%;
     }
 }
+/* Erweiterte Media Queries */
+
+/* Für Geräte mit max. Breite von 1024px (Tablets und kleinere Laptops) */
+@media (max-width: 1024px) {
+    .edit-blog-page {
+        max-width: 90%;
+        margin: 30px auto;
+        padding: 25px;
+    }
+
+    .edit-blog-header h1 {
+        font-size: 2.2rem;
+    }
+
+    .edit-blog-header p {
+        font-size: 1.1rem;
+    }
+
+    .form-group label {
+        font-size: 0.95rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 8px;
+        font-size: 0.95rem;
+    }
+
+    .btn-blue,
+    .btn-secondary {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Für Geräte mit max. Breite von 768px (kleine Tablets und große Smartphones) */
+@media (max-width: 768px) {
+    .edit-blog-page {
+        max-width: 95%;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    .edit-blog-header h1 {
+        font-size: 2rem;
+    }
+
+    .edit-blog-header p {
+        font-size: 1rem;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .btn-blue,
+    .btn-secondary {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+        width: 100%;
+    }
+}
+
+/* Für Geräte mit max. Breite von 480px (kleine Smartphones) */
+@media (max-width: 480px) {
+    .edit-blog-page {
+        padding: 15px;
+    }
+
+    .edit-blog-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .edit-blog-header p {
+        font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 8px;
+        font-size: 0.85rem;
+    }
+
+    .btn-blue,
+    .btn-secondary {
+        padding: 10px 15px;
+        font-size: 0.85rem;
+        width: 100%;
+    }
+}
+
+/* Für Geräte mit max. Breite von 320px (sehr kleine Smartphones) */
+@media (max-width: 320px) {
+    .edit-blog-page {
+        padding: 10px;
+    }
+
+    .edit-blog-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .edit-blog-header p {
+        font-size: 0.8rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 6px;
+        font-size: 0.8rem;
+    }
+
+    .btn-blue,
+    .btn-secondary {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+        width: 100%;
+    }
+}

@@ -355,3 +355,166 @@
     color: #555;
     line-height: 1.6;
 }
+/* Media Queries */
+
+/* Für Geräte mit max. Breite von 1024px (Tablets und kleinere Laptops) */
+@media (max-width: 1024px) {
+    .blogs-page {
+        padding: 30px 20px;
+    }
+
+    .blogs-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .blogs-list {
+        gap: 20px;
+    }
+
+    .blog-item {
+        padding: 20px;
+    }
+
+    .blog-item h2 a {
+        font-size: 1.6rem;
+    }
+
+    .blog-item p {
+        font-size: 1rem;
+    }
+
+    .tips-grid, .categories-grid, .feedback-grid, .goals-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+    }
+}
+
+/* Für Geräte mit max. Breite von 768px (kleine Tablets und große Smartphones) */
+@media (max-width: 768px) {
+    .blogs-header h1 {
+        font-size: 2rem;
+    }
+
+    .blogs-page {
+        padding: 20px 15px;
+    }
+
+    .blog-item {
+        padding: 15px;
+    }
+
+    .blog-item h2 a {
+        font-size: 1.4rem;
+    }
+
+    .blog-item p {
+        font-size: 0.95rem;
+    }
+
+    .writing-tips h2, .popular-categories h2, .reader-feedback h2, .goals h2 {
+        font-size: 1.8rem;
+    }
+
+    .tip-item i, .category-item i, .goal-item i {
+        font-size: 2rem;
+    }
+
+    .tip-item h3, .category-item h3, .goal-item h3 {
+        font-size: 1.3rem;
+    }
+
+    .tip-item p, .category-item p, .goal-item p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Für Geräte mit max. Breite von 480px (kleine Smartphones) */
+@media (max-width: 480px) {
+    .blogs-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .blogs-page {
+        padding: 15px 10px;
+    }
+
+    .blog-item {
+        padding: 10px;
+    }
+
+    .blog-item h2 a {
+        font-size: 1.2rem;
+    }
+
+    .blog-item p {
+        font-size: 0.85rem;
+    }
+
+    .tips-grid, .categories-grid, .feedback-grid, .goals-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .tip-item i, .category-item i, .goal-item i {
+        font-size: 1.8rem;
+    }
+
+    .tip-item h3, .category-item h3, .goal-item h3 {
+        font-size: 1.1rem;
+    }
+
+    .tip-item p, .category-item p, .goal-item p {
+        font-size: 0.8rem;
+    }
+
+    .reader-feedback blockquote {
+        font-size: 0.85rem;
+    }
+
+    .reader-feedback footer {
+        font-size: 0.75rem;
+    }
+}
+
+/* Für Geräte mit max. Breite von 320px (sehr kleine Smartphones) */
+@media (max-width: 320px) {
+    .blogs-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .blogs-page {
+        padding: 10px;
+    }
+
+    .blog-item {
+        padding: 8px;
+    }
+
+    .blog-item h2 a {
+        font-size: 1rem;
+    }
+
+    .blog-item p {
+        font-size: 0.75rem;
+    }
+
+    .tip-item i, .category-item i, .goal-item i {
+        font-size: 1.5rem;
+    }
+
+    .tip-item h3, .category-item h3, .goal-item h3 {
+        font-size: 1rem;
+    }
+
+    .tip-item p, .category-item p, .goal-item p {
+        font-size: 0.7rem;
+    }
+
+    .reader-feedback blockquote {
+        font-size: 0.75rem;
+    }
+
+    .reader-feedback footer {
+        font-size: 0.65rem;
+    }
+}

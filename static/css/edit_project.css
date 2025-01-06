@@ -115,3 +115,103 @@
         width: 100%;
     }
 }
+/* Erweiterte Media Queries */
+
+/* Für Geräte mit max. Breite von 1024px (Tablets und kleinere Laptops) */
+@media (max-width: 1024px) {
+    .edit-project-page {
+        max-width: 90%;
+        margin: 30px auto;
+        padding: 25px;
+    }
+
+    .edit-project-header h1 {
+        font-size: 2.2rem;
+    }
+
+    .form-group label {
+        font-size: 0.95rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 8px;
+        font-size: 0.95rem;
+    }
+
+    .btn-blue {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Für Geräte mit max. Breite von 768px (kleine Tablets und große Smartphones) */
+@media (max-width: 768px) {
+    .edit-project-page {
+        max-width: 95%;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    .edit-project-header h1 {
+        font-size: 2rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .btn-blue {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+        width: 100%;
+    }
+}
+
+/* Für Geräte mit max. Breite von 480px (kleine Smartphones) */
+@media (max-width: 480px) {
+    .edit-project-page {
+        padding: 15px;
+    }
+
+    .edit-project-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 8px;
+        font-size: 0.85rem;
+    }
+
+    .btn-blue {
+        padding: 10px 15px;
+        font-size: 0.85rem;
+        width: 100%;
+    }
+}
+
+/* Für Geräte mit max. Breite von 320px (sehr kleine Smartphones) */
+@media (max-width: 320px) {
+    .edit-project-page {
+        padding: 10px;
+    }
+
+    .edit-project-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 6px;
+        font-size: 0.8rem;
+    }
+
+    .btn-blue {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+        width: 100%;
+    }
+}
