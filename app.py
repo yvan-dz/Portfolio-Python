@@ -22,7 +22,7 @@ mail = Mail(app)
 # Supabase konfigurieren
 supabase_url = "https://ubmvqnsxprdwtvaaqxjn.supabase.co"
 supabase_key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVibXZxbnN4cHJkd3R2YWFxeGpuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzYxODM1MDksImV4cCI6MjA1MTc1OTUwOX0.NQ-ctsr6drX0QNQW3hWLMjOPYPd4VmmQgLv6EP7z5e4"
-supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
+supabase: Client = create_client(supabase_url, supabase_key)
 
 # Flask-Login konfigurieren
 login_manager = LoginManager()
