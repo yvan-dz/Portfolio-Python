@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Neues Projekt hinzufügen{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/add_project.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="add-project-page">
+    <header class="add-project-header">
+        <h1>Neues Projekt hinzufügen</h1>
+    </header>
+
+    <form method="POST" enctype="multipart/form-data" class="add-project-form">
+        <div class="form-group">
+            <label for="name">Projektname:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Beschreibung:</label>
+            <textarea id="description" name="description" rows="5" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="image_url">Bild-URL:</label>
+            <input type="text" id="image_url" name="image_url">
+        </div>
+
+        <div class="form-group">
+            <label for="image_file">Bild hochladen:</label>
+            <input type="file" id="image_file" name="image_file" accept="image/*">
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-green">Projekt hinzufügen</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

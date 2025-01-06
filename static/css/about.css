@@ -1,0 +1,453 @@
+/* Allgemeine Stile für die About-Seite */
+.about-page {
+    padding: 60px;
+    background: linear-gradient(135deg, #f4f7fa, #ffffff);
+    border-radius: 25px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+    animation: fadeInUp 1.5s ease-in-out;
+    margin: 30px auto;
+    max-width: 1200px;
+}
+
+/* Header */
+.about-header {
+    text-align: center;
+    background: linear-gradient(135deg, #0056a3, #0078D7);
+    color: white;
+    padding: 60px 30px;
+    border-radius: 25px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    margin-bottom: 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-header h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.about-header p {
+    font-size: 1.3rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.9;
+    color: #e3e3e3;
+}
+
+.about-header::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: -20%;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 20%, transparent 70%);
+    transform: rotate(30deg);
+    z-index: 0;
+    animation: pulse 10s infinite;
+}
+
+.about-header * {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Allgemeine Sektionen */
+.about-section {
+    margin-bottom: 60px;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-section:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.about-section h2 {
+    font-size: 2.2rem;
+    color: #0056a3;
+    margin-bottom: 20px;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.about-section h2::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 5px;
+    background: linear-gradient(to right, #0078D7, #FF6600);
+    margin: 15px auto 0;
+    border-radius: 3px;
+}
+
+.about-section p {
+    font-size: 1.2rem;
+    color: #333;
+    line-height: 1.8;
+    text-align: center;
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+/* Listen */
+.about-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+.about-list li {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 20px;
+    padding-left: 40px;
+    position: relative;
+    line-height: 1.8;
+}
+
+.about-list li::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    color: #0078D7;
+    font-size: 1.5rem;
+    transform: translateY(-2px);
+}
+
+/* Spezielle Abstände */
+.about-section p + ul {
+    margin-top: 30px;
+}
+
+.about-section ul + p {
+    margin-top: 40px;
+}
+
+/* Animationen */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsives Design */
+@media (max-width: 768px) {
+    .about-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .about-header p {
+        font-size: 1.1rem;
+    }
+
+    .about-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .about-section p {
+        font-size: 1rem;
+    }
+
+    .about-list li {
+        font-size: 1rem;
+    }
+}
+
+
+/* Personal Story */
+.personal-story .story-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.personal-story .story-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.personal-story .story-image img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.personal-story .story-text {
+    flex: 1;
+}
+
+.personal-story .story-text p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+
+/* Education Timeline */
+.education .education-timeline {
+    position: relative;
+    margin-top: 30px;
+}
+
+.education .timeline-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.education .timeline-item .timeline-icon {
+    background: #0078D7;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-right: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education .timeline-item:hover .timeline-icon {
+    transform: scale(1.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.education .timeline-item .timeline-content h3 {
+    font-size: 1.5rem;
+    color: #0056a3;
+    margin-bottom: 5px;
+}
+
+.education .timeline-item .timeline-content p {
+    font-size: 1rem;
+    color: #555;
+}
+
+
+/* Career Highlights */
+.career-highlights .career-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.career-highlights .career-card {
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.career-highlights .career-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.career-highlights .career-card i {
+    font-size: 3rem;
+    color: #0078D7;
+    margin-bottom: 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.career-highlights .career-card:hover i {
+    color: #FF6600;
+    transform: scale(1.2);
+}
+
+.career-highlights .career-card h3 {
+    font-size: 1.5rem;
+    color: #0056a3;
+    margin-bottom: 10px;
+}
+
+.career-highlights .career-card p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+
+/* Hobbies */
+.hobbies .hobbies-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.hobbies .hobby-card {
+    background: linear-gradient(135deg, #f9f9f9, #ffffff);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.hobbies .hobby-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.hobbies .hobby-card i {
+    font-size: 3rem;
+    color: #0078D7;
+    margin-bottom: 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.hobbies .hobby-card:hover i {
+    color: #FF6600;
+    transform: scale(1.2);
+}
+
+.hobbies .hobby-card h3 {
+    font-size: 1.5rem;
+    color: #0056a3;
+    margin-bottom: 10px;
+}
+
+.hobbies .hobby-card p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Fun Facts */
+.fun-facts .facts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.fun-facts .fact-card {
+    background: linear-gradient(145deg, #ffffff, #f3f4f6);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.1), -8px -8px 15px rgba(255, 255, 255, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.fun-facts .fact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.fun-facts .fact-card i {
+    font-size: 3rem;
+    color: #0078D7;
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+.fun-facts .fact-card:hover i {
+    color: #FF6600;
+}
+
+.fun-facts .fact-card h3 {
+    font-size: 1.5rem;
+    color: #0056a3;
+    margin-bottom: 10px;
+}
+
+.fun-facts .fact-card p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Future Goals */
+.future-goals .goals-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.future-goals .goal-card {
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.future-goals .goal-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.future-goals .goal-card i {
+    font-size: 3rem;
+    color: #0078D7;
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+.future-goals .goal-card:hover i {
+    color: #FF6600;
+}
+
+.future-goals .goal-card h3 {
+    font-size: 1.5rem;
+    color: #0056a3;
+    margin-bottom: 10px;
+}
+
+.future-goals .goal-card p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}

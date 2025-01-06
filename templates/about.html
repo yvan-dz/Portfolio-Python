@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+
+{% block title %}Über mich - Portfolio{% endblock %}
+{% block styles %} <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+    {% endblock %}
+{% block content %}
+<div class="about-page">
+    <div class="about-header">
+        <h1>Über mich</h1>
+        <p>Hallo! Mein Name ist Max Mustermann, und ich bin ein engagierter Student der Wirtschaftsinformatik mit einer großen Leidenschaft für Technologie, Innovation und kreatives Problemlösen.</p>
+    </div>
+    
+
+    <section class="about-section personal-story">
+        <h2>Meine Geschichte</h2>
+        <div class="story-container">
+            <div class="story-image">
+                <img src="https://c.stocksy.com/a/WVi300/z9/886074.jpg" alt="Meine Geschichte">
+            </div>
+            <div class="story-text">
+                <p>Schon in jungen Jahren habe ich mich für die Welt der Technologie begeistert. Ob es darum ging, kleine Programme auf meinem ersten Computer zu schreiben oder komplexe technische Herausforderungen zu meistern – meine Neugier hat mich stets angetrieben.</p>
+                <p>Während meines Studiums habe ich erkannt, wie wichtig die Verbindung zwischen Wirtschaft und Technologie ist. Mein Ziel ist es, innovative Lösungen zu entwickeln, die nicht nur effizient, sondern auch nachhaltig sind.</p>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="about-section education">
+        <h2>Bildungsweg</h2>
+        <div class="education-timeline">
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="timeline-content">
+                    <h3>Abitur</h3>
+                    <p>Gymnasium Musterstadt, 2018</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-university"></i>
+                </div>
+                <div class="timeline-content">
+                    <h3>Bachelor</h3>
+                    <p>Wirtschaftsinformatik, Technische Universität Musterstadt, 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="about-section career-highlights">
+        <h2>Berufliche Highlights</h2>
+        <div class="career-container">
+            <div class="career-card">
+                <i class="fas fa-tasks"></i>
+                <h3>Prozessmanagement</h3>
+                <p>Optimierung von Workflows und Einführung neuer Technologien zur Effizienzsteigerung.</p>
+            </div>
+            <div class="career-card">
+                <i class="fas fa-headset"></i>
+                <h3>First-Level-Support</h3>
+                <p>Technische Probleme lösen und Kunden bei ihren Herausforderungen unterstützen.</p>
+            </div>
+            <div class="career-card">
+                <i class="fas fa-cogs"></i>
+                <h3>Softwareentwicklung</h3>
+                <p>Entwicklung von Automatisierungstools und individuellen Softwarelösungen.</p>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="about-section hobbies">
+        <h2>Meine Hobbys</h2>
+        <div class="hobbies-container">
+            <div class="hobby-card">
+                <i class="fas fa-code"></i>
+                <h3>Programmieren</h3>
+                <p>Ich experimentiere gerne mit neuen Technologien und Programmiersprachen.</p>
+            </div>
+            <div class="hobby-card">
+                <i class="fas fa-camera"></i>
+                <h3>Fotografie</h3>
+                <p>Die Welt durch eine Linse zu sehen, ist eine meiner größten Leidenschaften.</p>
+            </div>
+            <div class="hobby-card">
+                <i class="fas fa-book"></i>
+                <h3>Lesen</h3>
+                <p>Bücher über Technologie, Wirtschaft und persönliche Entwicklung faszinieren mich.</p>
+            </div>
+            <div class="hobby-card">
+                <i class="fas fa-running"></i>
+                <h3>Sport</h3>
+                <p>Joggen und Wandern helfen mir, den Kopf frei zu bekommen und fit zu bleiben.</p>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="about-section future-goals">
+        <h2>Meine Zukunftspläne</h2>
+        <div class="goals-container">
+            <div class="goal-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Kenntnisse ausbauen</h3>
+                <p>Meine Expertise in Datenanalyse, KI und Prozessautomatisierung vertiefen.</p>
+            </div>
+            <div class="goal-card">
+                <i class="fas fa-cloud"></i>
+                <h3>Cloud-Experte</h3>
+                <p>Unternehmen sicher und effizient in die digitale Zukunft führen.</p>
+            </div>
+            <div class="goal-card">
+                <i class="fas fa-lightbulb"></i>
+                <h3>Innovative Lösungen</h3>
+                <p>Die Art und Weise, wie Unternehmen arbeiten, revolutionieren.</p>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="about-section fun-facts">
+        <h2>Ein paar Fakten über mich</h2>
+        <div class="facts-container">
+            <div class="fact-card">
+                <i class="fas fa-project-diagram"></i>
+                <h3>30+ Projekte</h3>
+                <p>Ich habe an über 30 Projekten in Webentwicklung, Automatisierung und Datenanalyse gearbeitet.</p>
+            </div>
+            <div class="fact-card">
+                <i class="fas fa-language"></i>
+                <h3>Deutsch lernen</h3>
+                <p>Ich verbessere meine Sprachkenntnisse durch praktische Beispiele im Alltag.</p>
+            </div>
+            <div class="fact-card">
+                <i class="fas fa-gem"></i>
+                <h3>Minimalistisches Design</h3>
+                <p>Ich liebe einfache, aber elegante Lösungen, die Probleme effektiv lösen.</p>
+            </div>
+        </div>
+    </section>
+    
+</div>
+{% endblock %}

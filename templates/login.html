@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="login-page">
+    <header class="login-header">
+        <h1>Login</h1>
+        <p>Bitte melde dich an, um auf dein Konto zuzugreifen.</p>
+    </header>
+
+    <form method="POST" class="login-form">
+        <div class="form-group">
+            <label for="username">Benutzername:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Passwort:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-blue">Anmelden</button>
+        </div>
+    </form>
+
+    
+</div>
+{% endblock %}

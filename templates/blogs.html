@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+
+{% block title %}Blogs - Portfolio{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/blogs.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="blogs-page">
+    <header class="blogs-header">
+        <h1>Blogs</h1>
+        {% if current_user.is_authenticated %}
+        <div class="add-blog-button">
+            <a href="/add_blog" class="btn btn-green">Neuen Blog erstellen</a>
+        </div>
+        {% endif %}
+    </header>
+
+    <div class="blogs-list">
+        {% for blog in blogs %}
+        <div class="blog-item">
+            <h2><a href="/blog/{{ blog['id'] }}">{{ blog['title'] }}</a></h2>
+            <p class="blog-meta">
+                <strong>Autor:</strong> {{ blog['author'] }} |
+                <strong>Erstellt am:</strong> {{ blog['created_at'] }}
+            </p>
+
+            {% if current_user.is_authenticated %}
+            <div class="blog-controls">
+                <p><strong>Aufrufe:</strong> {{ blog['views'] }}</p>
+                <a href="/edit_blog/{{ blog['id'] }}" class="btn btn-secondary">Bearbeiten</a>
+                <form method="POST" action="/delete_blog/{{ blog['id'] }}" style="display:inline;">
+                    <button type="submit" class="btn btn-danger">Löschen</button>
+                </form>
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+    <hr>
+
+<section class="writing-tips">
+    <h2>Tipps für erfolgreiches Schreiben</h2>
+    <p>Ein erfolgreicher Blogbeitrag erfordert mehr als nur Ideen. Hier sind einige Tipps, die ich für wichtig halte:</p>
+    <div class="tips-grid">
+        <div class="tip-item">
+            <i class="fas fa-align-left"></i>
+            <h3>Klare Struktur</h3>
+            <p>Gliedere deinen Beitrag in sinnvolle Abschnitte mit Überschriften.</p>
+        </div>
+        <div class="tip-item">
+            <i class="fas fa-users"></i>
+            <h3>Leserorientierung</h3>
+            <p>Schreibe so, dass deine Zielgruppe den Text leicht verstehen kann.</p>
+        </div>
+        <div class="tip-item">
+            <i class="fas fa-check-circle"></i>
+            <h3>Fakten überprüfen</h3>
+            <p>Recherchiere gründlich und stelle sicher, dass alle Informationen korrekt sind.</p>
+        </div>
+        <div class="tip-item">
+            <i class="fas fa-images"></i>
+            <h3>Bilder und Medien</h3>
+            <p>Nutze visuelle Inhalte, um deinen Text aufzulockern und interessanter zu gestalten.</p>
+        </div>
+    </div>
+</section>
+
+<hr>
+
+<section class="popular-categories">
+    <h2>Beliebte Kategorien</h2>
+    <p>Hier sind einige Kategorien, die in meinen Blogs häufig vorkommen:</p>
+    <div class="categories-grid">
+        <div class="category-item">
+            <a href="/category/technology">
+                <i class="fas fa-microchip"></i>
+                <h3>Technologie</h3>
+                <p>Trends, Entwicklungen und Innovationen.</p>
+            </a>
+        </div>
+        <div class="category-item">
+            <a href="/category/programming">
+                <i class="fas fa-code"></i>
+                <h3>Programmierung</h3>
+                <p>Tutorials, Tipps und Best Practices.</p>
+            </a>
+        </div>
+        <div class="category-item">
+            <a href="/category/business">
+                <i class="fas fa-chart-line"></i>
+                <h3>Wirtschaft</h3>
+                <p>Analysen und Einblicke in die Geschäftswelt.</p>
+            </a>
+        </div>
+        <div class="category-item">
+            <a href="/category/self-development">
+                <i class="fas fa-user"></i>
+                <h3>Persönliche Entwicklung</h3>
+                <p>Strategien zur Selbstverbesserung.</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+    <hr>
+
+<section class="reader-feedback">
+    <h2>Lesermeinungen</h2>
+    <p>Was sagen Leser über meinen Blog?</p>
+    <div class="feedback-grid">
+        <div class="feedback-card">
+            <blockquote>
+                <p>"Die Inhalte sind informativ und auf den Punkt gebracht. Ich freue mich immer auf neue Beiträge!"</p>
+                <footer>- Leser A</footer>
+            </blockquote>
+        </div>
+        <div class="feedback-card">
+            <blockquote>
+                <p>"Max schafft es, komplexe Themen einfach zu erklären. Ein toller Blog für Technikinteressierte."</p>
+                <footer>- Leser B</footer>
+            </blockquote>
+        </div>
+        <div class="feedback-card">
+            <blockquote>
+                <p>"Inspirierend und gut recherchiert. Der Blog hilft mir, neue Ideen für meine Projekte zu entwickeln."</p>
+                <footer>- Leser C</footer>
+            </blockquote>
+        </div>
+    </div>
+</section>
+
+<hr>
+
+<section class="goals">
+    <h2>Meine Blog-Ziele</h2>
+    <p>Ich möchte eine Plattform schaffen, die sowohl informativ als auch inspirierend ist. Meine Hauptziele sind:</p>
+    <div class="goals-grid">
+        <div class="goal-item">
+            <i class="fas fa-lightbulb"></i>
+            <h3>Komplexe Themen vereinfachen</h3>
+            <p>Ich möchte schwierige Konzepte in verständlicher Sprache erklären.</p>
+        </div>
+        <div class="goal-item">
+            <i class="fas fa-users"></i>
+            <h3>Ein breites Publikum erreichen</h3>
+            <p>Mein Ziel ist es, Leser aus verschiedenen Bereichen zu begeistern.</p>
+        </div>
+        <div class="goal-item">
+            <i class="fas fa-rocket"></i>
+            <h3>Ideen inspirieren</h3>
+            <p>Ich möchte meine Leser dazu motivieren, ihre eigenen Projekte umzusetzen.</p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

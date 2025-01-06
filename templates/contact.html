@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Kontakt{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="contact-page">
+    <header class="contact-header">
+        <h1>Kontakt</h1>
+        <p>Haben Sie Fragen oder möchten Sie mit mir zusammenarbeiten? Hinterlassen Sie mir eine Nachricht!</p>
+    </header>
+
+    <form method="POST" class="contact-form">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">E-Mail:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="message">Nachricht:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-blue">Absenden</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

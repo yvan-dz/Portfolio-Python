@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Blog bearbeiten - {{ blog['title'] }}{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/edit_blog.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="edit-blog-page">
+    <header class="edit-blog-header">
+        <h1>Blog bearbeiten</h1>
+        <p>{{ blog['title'] }}</p>
+    </header>
+
+    <form method="POST" class="edit-blog-form">
+        <div class="form-group">
+            <label for="title">Titel:</label>
+            <input type="text" id="title" name="title" value="{{ blog['title'] }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="content">Inhalt:</label>
+            <textarea id="content" name="content" rows="10" required>{{ blog['content'] }}</textarea>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-blue">Änderungen speichern</button>
+            <a href="/blogs" class="btn btn-secondary">Zurück zu den Blogs</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

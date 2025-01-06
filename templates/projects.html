@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block title %}Projekte - Portfolio{% endblock %}
+{% block styles %} <link rel="stylesheet" href="{{ url_for('static', filename='css/projects.css') }}">
+    {% endblock %}
+{% block content %}
+<div class="projects-page">
+    <div class="projects-header">
+        <h1>Meine Projekte</h1>
+        {% if current_user.is_authenticated %}
+        <p>Statistiken für angemeldete Benutzer verfügbar.</p>
+        <div class="add-project-button">
+            <a href="/add_project" class="btn btn-green">Neues Projekt hinzufügen</a>
+        </div>
+        
+        {% endif %}
+    </div>
+    
+
+    <section class="projects-section">
+        <div class="projects-grid">
+            {% for project in projects %}
+            <div class="project-card">
+                <a href="/project/{{ project['id'] }}" class="project-link">
+                    <img src="{{ project['image'] }}" alt="{{ project['name'] }}" class="project-image">
+                </a>
+                <div class="project-info">
+                    <h2>{{ project['name'] }}</h2>
+                    <p>{{ project['description'][:100] }}...</p>
+                    
+                </div>
+                {% if current_user.is_authenticated %}
+                <div class="project-controls">
+                    <a href="/project/{{ project['id'] }}" class="btn btn-info">Mehr erfahren</a>
+                    <a href="/edit_project/{{ project['id'] }}" class="btn btn-secondary">Bearbeiten</a>
+                    <a href="/delete_project/{{ project['id'] }}" class="btn btn-danger">Löschen</a>
+
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    
+
+    <hr>
+
+    <section class="methodology">
+        <h2>Arbeitsweise</h2>
+        <p>Bei meinen Projekten lege ich großen Wert auf Struktur, Effizienz und Kreativität. Meine typischen Schritte im Projektmanagement umfassen:</p>
+        <ul class="methodology-list">
+            <li><strong>Analyse:</strong> Verstehen der Anforderungen und Identifikation der Kernprobleme.</li>
+            <li><strong>Planung:</strong> Entwicklung einer klaren Roadmap und Festlegung der Meilensteine.</li>
+            <li><strong>Umsetzung:</strong> Effiziente Entwicklung unter Verwendung moderner Tools und Frameworks.</li>
+            <li><strong>Qualitätskontrolle:</strong> Sicherstellung, dass alle Ziele erfüllt werden, bevor das Projekt abgeschlossen wird.</li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <section class="tools">
+        <h2>Verwendete Technologien</h2>
+        <p>In meinen Projekten verwende ich eine Vielzahl von Technologien, um optimale Ergebnisse zu erzielen:</p>
+        <div class="tools-grid">
+            <div class="tool-card">
+                <h3>Programmiersprachen</h3>
+                <p>Python, JavaScript, SQL</p>
+            </div>
+            <div class="tool-card">
+                <h3>Frameworks</h3>
+                <p>Flask, Django, React</p>
+            </div>
+            <div class="tool-card">
+                <h3>Datenbanken</h3>
+                <p>PostgreSQL, Firebase</p>
+            </div>
+            <div class="tool-card">
+                <h3>Versionierung</h3>
+                <p>Git, GitHub</p>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section class="recognition">
+        <h2>Auszeichnungen & Meilensteine</h2>
+        <ul class="recognition-list">
+            <li><strong>2023:</strong> Teilnahme am Hackathon "Innovate IT" mit einem Projekt zur Prozessoptimierung.</li>
+            <li><strong>2022:</strong> Abschluss meines ersten Open-Source-Projekts, das in der Community über 500 Sterne erhalten hat.</li>
+            <li><strong>2021:</strong> Veröffentlichung eines Python-Moduls für Datenanalysen auf GitHub.</li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <section class="future-projects">
+        <h2>Zukünftige Projektideen</h2>
+        <p>Ich arbeite kontinuierlich an neuen Ideen und Konzepten, um meine Fähigkeiten zu erweitern und innovative Lösungen zu entwickeln. Zu meinen zukünftigen Projekten gehören:</p>
+        <ul class="future-projects-list">
+            <li>Entwicklung eines Tools für die Echtzeit-Datenvisualisierung.</li>
+            <li>Erstellung einer KI-gestützten Anwendung zur Workflow-Optimierung.</li>
+            <li>Ein Open-Source-Projekt für Studenten, um Programmiergrundlagen spielerisch zu erlernen.</li>
+        </ul>
+    </section>
+</div>
+{% endblock %}

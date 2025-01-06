@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Portfolio{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <div class="hero-text">
+        <h1>Willkommen auf meinem Portfolio!</h1>
+        <p>Ich bin Max Mustermann, Student der Wirtschaftsinformatik und leidenschaftlich an Technologie und Innovation interessiert.</p>
+        <a href="/about" class="btn">Mehr über mich erfahren</a>
+    </div>
+    <div class="hero-image">
+        <img src="https://c.stocksy.com/a/WVi300/z9/886074.jpg" alt="Max Mustermann">
+    </div>
+</div>
+
+
+<hr>
+
+<section class="highlights">
+    <h2>Warum Wirtschaftsinformatik?</h2>
+    <p>Die Verbindung von Technologie und Wirtschaft fasziniert mich. Mit meinem Studium strebe ich danach, innovative Lösungen zu entwickeln, die Unternehmen effizienter machen.</p>
+    <div class="highlights-grid">
+        <div class="highlights-item">
+            <h3>Softwareentwicklung</h3>
+            <p>Fundierte Kenntnisse in Python, Java und SQL, um innovative Softwarelösungen zu schaffen.</p>
+        </div>
+        <div class="highlights-item">
+            <h3>Projektmanagement</h3>
+            <p>Erfahrung in der Leitung und Optimierung von Projekten mit einem klaren Fokus auf Effizienz.</p>
+        </div>
+        <div class="highlights-item">
+            <h3>Datenanalyse</h3>
+            <p>Kompetenzen in der Analyse und Automatisierung von Prozessen für datengetriebene Entscheidungen.</p>
+        </div>
+    </div>
+</section>
+
+
+
+<hr>
+<section class="certifications">
+    <h2>Zertifizierungen & Auszeichnungen</h2>
+    <div class="certifications-grid">
+        <div class="certification-card">
+            <i class="certification-icon fas fa-award"></i>
+            <h3>Python Certified Developer</h3>
+            <p>Ausgestellt von: Python Institute</p>
+            <p>Jahr: 2023</p>
+        </div>
+        <div class="certification-card">
+            <i class="certification-icon fas fa-trophy"></i>
+            <h3>Hackathon Gewinner</h3>
+            <p>Veranstalter: Innovate IT Hackathon</p>
+            <p>Jahr: 2022</p>
+        </div>
+        <div class="certification-card">
+            <i class="certification-icon fas fa-certificate"></i>
+            <h3>Certified Data Analyst</h3>
+            <p>Ausgestellt von: Tableau</p>
+            <p>Jahr: 2021</p>
+        </div>
+    </div>
+</section>
+
+
+
+<hr>
+
+<section class="skills">
+    <h2>Fähigkeiten & Tools</h2>
+    <div class="skills-grid">
+        <div class="skill">
+            <h3>Programmiersprachen</h3>
+            <p>Python, Java, SQL</p>
+        </div>
+        <div class="skill">
+            <h3>Tools & Technologien</h3>
+            <p>Flask, Django, Flowable, Tableau</p>
+        </div>
+        <div class="skill">
+            <h3>Soft Skills</h3>
+            <p>Teamarbeit, Problemlösung, Zeitmanagement</p>
+        </div>
+    </div>
+</section>
+
+
+<hr>
+
+<section class="education">
+    <h2>Ausbildung</h2>
+    <div class="education-entry">
+        <i class="education-icon fas fa-university"></i>
+        <div>
+            <h3>Bachelor in Wirtschaftsinformatik</h3>
+            <p><strong>Universität:</strong> Technische Universität Musterstadt</p>
+            <p><strong>Abschluss:</strong> 2024</p>
+            <p><strong>Schwerpunkte:</strong> Softwareentwicklung, Datenanalyse, Prozessmanagement.</p>
+        </div>
+    </div>
+    <div class="education-entry">
+        <i class="education-icon fas fa-graduation-cap"></i>
+        <div>
+            <h3>Abitur</h3>
+            <p><strong>Schule:</strong> Gymnasium Musterstadt</p>
+            <p><strong>Abschluss:</strong> 2018</p>
+            <p><strong>Schwerpunkte:</strong> Mathematik, Informatik, Physik.</p>
+        </div>
+    </div>
+</section>
+
+
+<hr>
+
+<section class="work-experience">
+    <h2>Berufserfahrung</h2>
+    <div class="experience-entry">
+        <i class="experience-icon fas fa-briefcase"></i>
+        <div>
+            <h3>Werkstudent Prozessmanagement</h3>
+            <p><strong>Firma:</strong> T&A Systeme GmbH</p>
+            <p><strong>Zeitraum:</strong> 2023–2024</p>
+            <p><strong>Aufgaben:</strong> Optimierung von Workflows, Einführung von BPMN-Tools, Prozessanalyse.</p>
+        </div>
+    </div>
+    <div class="experience-entry">
+        <i class="experience-icon fas fa-headset"></i>
+        <div>
+            <h3>Werkstudent First-Level-Support</h3>
+            <p><strong>Firma:</strong> IT Solutions Musterstadt</p>
+            <p><strong>Zeitraum:</strong> 2021–2023</p>
+            <p><strong>Aufgaben:</strong> Technischer Kundensupport, Fehlerbehebung, Dokumentation.</p>
+        </div>
+    </div>
+    <div class="experience-entry">
+        <i class="experience-icon fas fa-code"></i>
+        <div>
+            <h3>Praktikum Softwareentwicklung</h3>
+            <p><strong>Firma:</strong> Innovative IT GmbH</p>
+            <p><strong>Zeitraum:</strong> Sommer 2020</p>
+            <p><strong>Aufgaben:</strong> Entwicklung eines internen Tools mit Python, Datenbankverwaltung.</p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,512 @@
+/* Allgemeines Layout für die Projekte-Seite */
+.projects-page {
+    padding: 60px;
+    background: linear-gradient(135deg, #f4f7fa, #ffffff);
+    border-radius: 25px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+    animation: fadeInUp 1.5s ease-in-out;
+    margin: 30px auto;
+    max-width: 1200px;
+}
+
+/* Header */
+/* Projects Header */
+.projects-header {
+    text-align: center;
+    background: linear-gradient(135deg, #0078D7, #0056a3);
+    color: white;
+    padding: 60px 30px;
+    border-radius: 25px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+    margin-bottom: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.projects-header h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.projects-header p {
+    font-size: 1.3rem;
+    color: #e3e3e3;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.projects-header::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: -20%;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 20%, transparent 70%);
+    transform: rotate(30deg);
+    z-index: 0;
+    animation: pulse 8s infinite;
+}
+
+.projects-header * {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Projekte Grid */
+/* Projects Section */
+.projects-section {
+    margin-top: 50px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+    padding: 0 20px;
+}
+
+/* Project Card */
+.project-card {
+    background: linear-gradient(145deg, #ffffff, #f3f4f6);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 -2px 5px rgba(255, 255, 255, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.project-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.project-card h2 {
+    font-size: 1.5rem;
+    color: #0056a3;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.project-card h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #0078D7;
+    margin: 10px 0;
+    border-radius: 3px;
+}
+
+.project-card p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Buttons */
+.project-card .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease, color 0.3s ease;
+}
+
+/* Primary Button */
+.project-card .btn-info {
+    background: #0078D7;
+    color: #fff;
+}
+
+.project-card .btn-info:hover {
+    background: #0056a3;
+    transform: scale(1.05);
+}
+
+/* Secondary Button */
+.project-card .btn-secondary {
+    background: #6c757d;
+    color: #fff;
+}
+
+.project-card .btn-secondary:hover {
+    background: #5a6268;
+    transform: scale(1.05);
+}
+
+/* Danger Button */
+.project-card .btn-danger {
+    background: #dc3545;
+    color: #fff;
+}
+
+.project-card .btn-danger:hover {
+    background: #c82333;
+    transform: scale(1.05);
+}
+
+/* Button Accessibility */
+.project-card .btn:focus {
+    outline: 2px solid #0078D7;
+    outline-offset: 2px;
+}
+
+/* Projektkontrollen */
+.project-controls {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.project-controls p {
+    color: #555;
+}
+
+/* Methodology Section */
+/* Methodology Section */
+.methodology {
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    padding: 40px 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.methodology h2 {
+    font-size: 2.2rem;
+    color: #0056a3;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+}
+
+.methodology h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #0078D7, #FF6600);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.methodology p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto 30px;
+}
+
+.methodology-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 800px;
+    text-align: left;
+}
+
+.methodology-list li {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 20px;
+    padding-left: 40px;
+    position: relative;
+    line-height: 1.8;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.methodology-list li:hover {
+    transform: translateX(10px);
+    color: #0056a3;
+}
+
+.methodology-list li::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    color: #0078D7;
+    font-size: 1.3rem;
+    line-height: 1;
+}
+
+/* Tools Grid */
+/* Tools Section */
+.tools {
+    background: linear-gradient(135deg, #f9f9f9, #ffffff);
+    padding: 40px 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.tools h2 {
+    font-size: 2.2rem;
+    color: #0056a3;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+}
+
+.tools h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #0078D7, #FF6600);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.tools p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto 30px;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+    padding: 0 20px;
+}
+
+.tool-card {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.tool-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+.tool-card h3 {
+    font-size: 1.5rem;
+    color: #0056a3;
+    margin-bottom: 10px;
+}
+
+.tool-card p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+
+/* Recognition Section */
+/* Recognition Section */
+.recognition {
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    padding: 40px 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.recognition h2 {
+    font-size: 2.2rem;
+    color: #0056a3;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+}
+
+.recognition h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #0078D7, #FF6600);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.recognition-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 800px;
+    text-align: left;
+}
+
+.recognition-list li {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 20px;
+    padding-left: 50px;
+    position: relative;
+    line-height: 1.8;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.recognition-list li:hover {
+    transform: translateX(10px);
+    color: #0056a3;
+}
+
+.recognition-list li::before {
+    content: '🏆';
+    position: absolute;
+    left: 0;
+    color: #FF6600;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+/* Future Projects Section */
+/* Future Projects Section */
+.future-projects {
+    background: linear-gradient(135deg, #f9f9f9, #ffffff);
+    padding: 40px 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.future-projects h2 {
+    font-size: 2.2rem;
+    color: #0056a3;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+}
+
+.future-projects h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #0078D7, #FF6600);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.future-projects p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto 30px;
+}
+
+.future-projects-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 800px;
+    text-align: left;
+}
+
+.future-projects-list li {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 20px;
+    padding-left: 50px;
+    position: relative;
+    line-height: 1.8;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.future-projects-list li:hover {
+    transform: translateX(10px);
+    color: #0078D7;
+}
+
+.future-projects-list li::before {
+    content: '💡';
+    position: absolute;
+    left: 0;
+    color: #0078D7;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+/* Grüner Button */
+.btn-green {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background: #28a745; /* Grüner Hintergrund */
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.btn-green:hover {
+    background: #218838; /* Dunkleres Grün bei Hover */
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.btn-green:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.5);
+}
+

@@ -1,0 +1,128 @@
+/* Allgemeine Stile für die Projekt-Detailseite */
+.project-detail-page {
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #f4f7fa, #ffffff);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+/* Header */
+.project-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.project-header h1 {
+    font-size: 2.5rem;
+    color: #0056a3;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.project-header h1::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(to right, #0078D7, #FF6600);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+/* Projekt-Details */
+/* Projekt-Details */
+.project-detail {
+    display: flex;
+    flex-direction: column; /* Bild immer oben */
+    gap: 30px;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+/* Projekt-Bild */
+.project-image img {
+    width: 100%;
+    max-width: 500px; /* Begrenzt auf 500px Breite */
+    height: auto; /* Verhältnis bleibt erhalten */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.project-image img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.no-image {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 500px; /* Gleiche Breite wie das Bild */
+    margin: 0 auto;
+}
+
+/* Projekt-Beschreibung */
+.project-description {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #333;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+.project-description p {
+    margin-bottom: 20px;
+}
+
+/* Projekt-Statistiken */
+.project-stats {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    color: #555;
+    text-align: center;
+}
+
+/* Footer */
+.project-footer {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.project-footer .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    background: #0078D7;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.project-footer .btn:hover {
+    background: #0056a3;
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsives Design */
+@media (max-width: 768px) {
+    .project-image img {
+        max-width: 100%;
+    }
+
+    .project-description {
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,551 @@
+/* Allgemeine Stile */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #f9f9f9, #e6f7ff);
+    margin: 0;
+    color: #333;
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3.5rem;
+    color: #0056a3;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: #0078D7;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #ccc, transparent);
+    margin: 40px 0;
+}
+
+/* Hero-Sektion */
+/* Hero-Sektion */
+.hero {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 40px;
+    background: linear-gradient(135deg, #16213E, #0F3460); /* Dunkle Blau-/Grautöne */
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    color: white;
+    overflow: hidden;
+    animation: fadeIn 1.5s ease-in-out;
+    margin-top: 5%;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 20%, transparent 60%);
+    animation: spin 20s linear infinite;
+    z-index: 0;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    animation: fadeInDown 1.5s ease;
+    color: #E6E6E6;
+}
+
+.hero-text p {
+    font-size: 1.3rem;
+    margin: 20px 0;
+    line-height: 1.8;
+    animation: fadeInUp 2s ease;
+    color: #E6E6E6;
+}
+
+.hero-text .btn {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    padding: 12px 25px;
+    background: #F9A826; /* Kontrastfarbe */
+    color: #16213E;
+    border-radius: 5px;
+    transition: 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hero-text .btn:hover {
+    background: #FFC947; /* Hellere Kontrastfarbe */
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero-image img {
+    max-width: 450px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    animation: bounce 3s infinite;
+    z-index: 1;
+    margin-top: 10%;
+}
+
+
+
+/* Warum Wirtschaftsinformatik */
+.highlights {
+    padding: 60px 40px;
+    background: linear-gradient(135deg, #f8f9fa, #ffffff);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+    position: relative;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+.highlights h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #0078D7;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.highlights h2::after {
+    content: '';
+    display: block;
+    width: 120px;
+    height: 4px;
+    background: linear-gradient(to right, #0078D7, #FF6600);
+    margin: 15px auto 0;
+    border-radius: 10px;
+}
+
+.highlights p {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 20px auto 40px;
+}
+
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.highlights-item {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.highlights-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.highlights-item::before {
+    content: '✔';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 2rem;
+    color: #0078D7;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.highlights-item:hover::before {
+    transform: rotate(15deg) scale(1.2);
+    color: #FF6600;
+}
+
+.highlights-item h3 {
+    font-size: 1.5rem;
+    color: #0056a3;
+    margin-bottom: 15px;
+}
+
+.highlights-item p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+
+
+/* Zertifizierungen & Auszeichnungen */
+.certifications {
+    padding: 50px;
+    background: linear-gradient(135deg, #f5f7fa, #ffffff);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+    animation: fadeInUp 1.5s ease-in-out;
+    text-align: center;
+}
+
+.certifications h2 {
+    color: #0056a3;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.certification-card {
+    background: linear-gradient(145deg, #ffffff, #f5f7fa);
+    border-radius: 15px;
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.1), -8px -8px 15px rgba(255, 255, 255, 0.7);
+    padding: 30px;
+    transition: all 0.3s ease;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.certification-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.certification-icon {
+    font-size: 3rem;
+    color: #FF6600;
+    margin-bottom: 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.certification-card:hover .certification-icon {
+    color: #0078D7;
+    transform: scale(1.2);
+}
+
+.certification-card h3 {
+    font-size: 1.5rem;
+    color: #0078D7;
+    margin-bottom: 10px;
+}
+
+.certification-card p {
+    font-size: 1rem;
+    color: #555;
+    margin: 5px 0;
+}
+
+
+
+/* Fähigkeiten & Tools */
+.skills {
+    padding: 50px;
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+    animation: fadeInUp 1.5s ease-in-out;
+    text-align: center;
+}
+
+.skills h2 {
+    color: #0078D7;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.skill {
+    background: linear-gradient(145deg, #ffffff, #f5f7fa);
+    border-radius: 15px;
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.1), -8px -8px 15px rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.skill h3 {
+    font-size: 1.4rem;
+    color: #0056a3;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.skill h3:hover {
+    color: #FF6600;
+}
+
+.skill p {
+    font-size: 1rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.skill::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, #0078D7, #FF6600);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.skill:hover::before {
+    transform: scaleX(1);
+}
+
+/* Ausbildung */
+.education {
+    padding: 50px;
+    background: linear-gradient(135deg, #f8f9fa, #ffffff);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+.education-entry {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    background: linear-gradient(135deg, #ffffff, #f5f7fa);
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 5px solid #FF6600;
+    border-right: 5px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.education-entry:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-right: 5px solid #0078D7;
+}
+
+.education-entry h3 {
+    font-size: 1.6rem;
+    color: #FF6600;
+    margin: 0;
+    font-weight: bold;
+}
+
+.education-entry p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+.education-entry::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 10px;
+    background: linear-gradient(to bottom, #FF6600, #0078D7);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+
+.education-entry:hover::before {
+    transform: scaleX(1);
+}
+
+/* Zusätzliche Animationen für Icons */
+.education-icon {
+    font-size: 2.5rem;
+    color: #FF6600;
+    margin-right: 20px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.education-entry:hover .education-icon {
+    color: #0078D7;
+    transform: rotate(15deg) scale(1.2);
+}
+
+/* Berufserfahrung */
+.work-experience {
+    padding: 50px;
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+.experience-entry {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    background: linear-gradient(135deg, #f5f7fa, #ffffff);
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 5px solid #0078D7;
+    border-right: 5px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.experience-entry:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-right: 5px solid #FF6600;
+}
+
+.experience-entry h3 {
+    font-size: 1.6rem;
+    color: #0078D7;
+    margin: 0;
+    font-weight: bold;
+}
+
+.experience-entry p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+.experience-entry::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 10px;
+    background: linear-gradient(to bottom, #0078D7, #FF6600);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+
+.experience-entry:hover::before {
+    transform: scaleX(1);
+}
+
+.experience-entry:last-child {
+    margin-bottom: 0;
+}
+
+/* Zusätzliche Animation für die Icons */
+.experience-icon {
+    font-size: 2.5rem;
+    color: #0078D7;
+    margin-right: 20px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.experience-entry:hover .experience-icon {
+    color: #FF6600;
+    transform: rotate(15deg) scale(1.2);
+}
+
+/* Animationen */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,168 @@
+/* Allgemeine Stile */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Navbar */
+/* Navbar */
+nav {
+    background: linear-gradient(135deg, #1A1A2E, #16213E);
+    padding: 15px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    color: #fdfafa; /* Sanfteres Weiß */
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #F9A826; /* Akzentfarbe */
+    transform: scale(1.1);
+}
+
+nav ul li a.active {
+    border-bottom: 3px solid #F9A826;
+}
+
+
+/* Dropdown Menü */
+nav ul li ul {
+    display: none;
+    position: absolute;
+    background: white;
+    top: 40px;
+    left: 0;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 10px 0;
+}
+
+nav ul li:hover ul {
+    display: block;
+}
+
+nav ul li ul li {
+    text-align: left;
+    padding: 10px 20px;
+    width: 200px;
+}
+
+nav ul li ul li a {
+    color: #fffcfc;
+    text-transform: none;
+}
+
+nav ul li ul li a:hover {
+    background: #0078D7;
+    color: white;
+    border-radius: 5px;
+}
+
+/* Flash-Messages */
+.flash-messages {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.flash {
+    background: #0078D7;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    animation: slideIn 0.5s ease;
+}
+
+.flash.error {
+    background: #FF4500;
+}
+
+.flash.success {
+    background: #00C851;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+footer p a {
+    color: #FF6600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer p a:hover {
+    color: #FF4500;
+}
+
+footer::before {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #0078D7, #FF6600);
+    margin: 0 auto 10px;
+    border-radius: 5px;
+}
+
+/* Animationen */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul li ul {
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+}
