@@ -27,11 +27,11 @@
                 <div class="project-info">
                     <h2>{{ project['name'] }}</h2>
                     <p>{{ project['description'][:100] }}...</p>
-                    
+                    <a href="/project/{{ project['id'] }}" class="btn btn-info">Mehr erfahren</a>
                 </div>
                 {% if current_user.is_authenticated %}
                 <div class="project-controls">
-                    <a href="/project/{{ project['id'] }}" class="btn btn-info">Mehr erfahren</a>
+                    
                     <a href="/edit_project/{{ project['id'] }}" class="btn btn-secondary">Bearbeiten</a>
                     <a href="/delete_project/{{ project['id'] }}" class="btn btn-danger">Löschen</a>
 
